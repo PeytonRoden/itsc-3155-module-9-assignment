@@ -6,6 +6,13 @@ app = Flask(__name__)
 
 movie_repository = get_movie_repository()
 
+movie_data = {
+    'Black Panter': ['Ryan Coogler', '4'],
+    'Spider Man': ['Jon Watts', '3'],
+    'Doctor Strange': ['Scott Derrickson', '5'],
+    'Captian Marvel': ['Louis Leterrier', '3']
+}
+
 
 @app.get('/')
 def index():
@@ -15,6 +22,9 @@ def index():
 @app.get('/movies')
 def list_all_movies():
     # TODO: Feature 1
+    # movie_name
+    # movie_director
+    # movie_rating
     return render_template('list_all_movies.html', list_movies_active=True)
 
 
