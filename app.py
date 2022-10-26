@@ -17,6 +17,8 @@ def index():
 def list_all_movies():
     # TODO: Feature 1
     list_movie = movie_repository.get_all_movies()
+
+    #get_movie_repository = list[Movie]
     return render_template('list_all_movies.html', list_movies_active=get_movie_repository, list_movie=list_movie)
 
 @app.get('/movies/new')
@@ -27,6 +29,9 @@ def create_movies_form():
 @app.post('/movies')
 def create_movie():
     # TODO: Feature 2
+    
+    # After creating the movie in the database, we redirect to the list all movies page
+
     movie_name = request.form.get('movie_name')
     movie_director = request.form.get('movie_director')
     movie_rating = request.form.get('movie_rating')
@@ -35,9 +40,11 @@ def create_movie():
     if(movie_name == None or movie_director == None):
         return render_template('please_fill_all_fields.html')
 
+
     movie_repository.create_movie(movie_name, movie_director, int(movie_rating))
 
     return redirect('/movies') 
+
 
 
 @app.get('/movies/search')
