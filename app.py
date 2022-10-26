@@ -43,8 +43,12 @@ def create_movie():
 @app.get('/movies/search')
 def search_movies():
     all_movies = movie_repository.get_all_movies()
-    movietitle = request.form.get('movie-name')
+    ratings_list = []
+    movietitle = request.args.get('movie-name')
     movie_repository.get_movie_by_title(movietitle)
+    for movietitle in all_movies:
+        if movietitle == movietitle:
+            ratings_list.append
 
 
-    return render_template('search_movies.html', search_active=True, movietitle=movietitle, all_movies=all_movies)
+    return render_template('search_movies.html', search_active=True, movietitle=movietitle, all_movies=all_movies, ratings_list=ratings_list)
