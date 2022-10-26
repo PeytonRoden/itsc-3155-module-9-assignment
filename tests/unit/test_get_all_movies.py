@@ -28,3 +28,4 @@ def test_get_all_movies_unordered():
     assert b'<td>Spider Man</td>' in response_data
     assert b'<td>Jon Watts</td>' in response_data
     assert b'<td>3</td>' in response_data
+
