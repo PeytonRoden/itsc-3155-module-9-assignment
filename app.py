@@ -46,9 +46,9 @@ def search_movies():
     ratings_list = []
     movietitle = request.args.get('movie-name')
     movie_repository.get_movie_by_title(movietitle)
-    for movietitle in all_movies:
-        if movietitle == movietitle:
-            ratings_list.append
+    for movie in all_movies:
+        if(movietitle == movie.title):
+            ratings_list.append(movie)
 
 
-    return render_template('search_movies.html', search_active=True, movietitle=movietitle, all_movies=all_movies, ratings_list=ratings_list)
+    return render_template('search_movies.html', search_active=True, ratings_list=ratings_list)
